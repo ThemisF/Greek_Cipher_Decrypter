@@ -26,7 +26,7 @@ In such small texts it is very difficult to use letter-frequency analysis becaus
   3. Score by counting dictionary matches.  
 - **Outcome:** The key-space (24! ≈ 10²³) was far too large  and the computations too time expensive so no readable plaintext was ever found with this method.
 
-### Version 3: Literature-Derived Chunked Sampling & Iterative Self-Correction with frequency analisys with the aid of a Greek dictionary.
+### Version 3: Literature-Derived Chunked Sampling & Iterative Self-Correction with frequency analisys with the aid of a Greek dictionary
 - **Approach:** Used real Greek text statistics cut into chunks to generate realistic frequency orders, added a greek dictionary for automatically checking readability "Greekness", optimized the algorythm and added an iterative self-correction loop.
 - **Process:**  
   1. **Chunk Sampling:** Chop multiple Greek literature sources into segments the size of the ciphertext and deriving a 24 letter frequency list out of each one. This approach aims to solve the problem the first version of the code faced.
@@ -49,7 +49,7 @@ cd greek-cipher-decryption
 python posostiaia-apokryptografisi-V5.0.py
 ```
 
-### Example
+## Example
 This is how the code is used in practice:
 
 ![Usage example 0.5](https://raw.githubusercontent.com/ThemisF/Greek_Cipher_Decrypter/main/images/codeUse_1.png)
