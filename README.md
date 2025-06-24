@@ -2,11 +2,11 @@
 ### Python tool for short-text Greek monoalphabetic cipher recovery via literature-derived frequency sampling and iterative heuristic self-correction
 
 ## Overview  
-In 2021, as a second-year **15 year old highshool student**, I was challenged by my math’s teacher to decrypt the following small Greek ciphertext:
+In 2021, as a second-year **15 year old highshool student**, I was challenged by my math teacher to decrypt the following small Greek ciphertext:
 
   **```ΞΟΖ ΒΣΟΧΔΠ, Α ΞΣΦΘΚΧΟ ΣΝΦΣ ΦΧΘΝΞΣΝ ΞΟΖΓ ΙΧΞΝΤΝΧ ΞΧΦΘΝΛΝΧΘ ΟΘΣΝΞ ΛΝΖΠΞ. ΟΑ ΦΝΤΝΖΞΟΑ ΗΘΩΟΑ ΓΠΦΟΧ, ΒΖΤΝΞ ΟΣΤΣΝΩΞΣ ΟΑΓ ΝΞΟΖΘΝΧ ΟΖΠ ΒΧΧΘΖΠΡ, ΞΑΥΩΜΑΥΣ ΥΧΝ ΡΝΤΑΞΣ ΟΖ ΗΧΟΩΒΧ ΒΗΘΖΞΟΧ ΟΖΠ ΤΣΛΖΓΟΧΞ: «ΒΣΛΧΤΣ ΙΧΞΝΤΝΧ, ΛΝΧ ΦΝΤΝΣΞ ΥΧΝ ΒΝΧ ΓΠΦΟΣΞ ΞΖΠ ΕΝΑΛΑΜΑΥΧ ΟΖΠΞ ΒΠΜΖΠΞ ΟΩΓ ΗΣΘΧΞΒΣΓΩΓ ΣΗΖΦΩΓ ΥΧΝ ΟΖΠΞ ΜΘΠΤΖΠΞ ΟΩΓ ΧΘΦΧΝΩΓ ΙΧΞΝΤΣΩΓ. ΒΗΖΘΩ ΓΧ ΟΖΤΒΑΞΩ ΓΧ ΚΑΟΑΞΩ ΒΝΧ ΦΧΘΑ ΧΗΖ ΟΑ ΒΣΛΧΤΣΝΖΟΑΟΧ ΞΖΠ```**
  
-Over **1½ years** and **three major program versions**, I evolved the tool from classic **frequency analysis** to a **literature-driven sampling method with iterative self-correction** ultimately recovering a fully readable story!
+After **1½ years** of my leisure time and **three major program versions**, I evolved the tool from classic **frequency analysis** to a **literature-driven sampling method with iterative self-correction** ultimately recovering a fully readable story!
 
 ## Iterations
 
@@ -21,21 +21,21 @@ In such small texts it is very difficult to use letter-frequency analysis becaus
 ### Version 2: Random Key Brute Force  
 - **Approach:** Treated the key as a random 24-letter permutation and brute-forced by sampling millions of candidates.  
 - **Process:**  
-  1. Generate random strings of the 24 Greek letter alphaber keys.  
+  1. Generate random strings of the 24 Greek letter alphabet keys.  
   2. Decrypt the ciphertext with each permutation.  
   3. Score by counting dictionary matches.  
 - **Outcome:** The key-space (24! ≈ 10²³) was far too large  and the computations too time expensive so no readable plaintext was ever found with this method.
 
 ### Version 3: Literature-Derived Chunked Sampling & Iterative Self-Correction with frequency analisys with the aid of a Greek dictionary
-- **Approach:** Used real Greek text statistics cut into chunks to generate realistic frequency orders, added a greek dictionary for automatically checking readability "Greekness", optimized the algorythm and added an iterative self-correction loop.
+- **Approach:** Used real Greek text statistics cut into chunks to generate realistic frequency orders, added a greek dictionary for automatically checking readability "Greekness", optimized the algorithm and added an iterative self-correction loop.
 - **Process:**  
   1. **Chunk Sampling:** Chop multiple Greek literature sources into segments the size of the ciphertext and deriving a 24 letter frequency list out of each one. This approach aims to solve the problem the first version of the code faced.
-  2. **Greek Dictionary:** Added a Greek dictinary for automating multiple processes that where done manually and most importantly couantifying how greek (how succesfull was the decryption) the semi-decrypted text was after the key was used. 
-  3. **Optimization:** After creating a bunch of frecuency ordered 24 character lists (keys) from Greek literature, they were grouped based on similarity. This way only one had to be checked for verifying if the group's mapping was inprooving Greekness when used for decyphering
+  2. **Greek Dictionary:** Added a Greek dictinary for automating multiple processes that were done manually and most importantly quantifying how greek (how successfull was the decryption) the semi-decrypted text was after the key was used. 
+  3. **Optimization:** After creating a bunch of frequency ordered 24 character lists (keys) from Greek literature, they were grouped based on similarity. This way only one had to be checked for verifying if the group's mapping was improving Greekness when used for decyphering
   5. **Iterative Correction:**  
      - Decrypt using the sampled keys that passed the previous test (improved Greekness).  
      - Detect improbable words (e.g. “Θασιλιάς” --> "Βασιλιάς" {corrected word}) and swap specific letters (Θ→Β) using the Greek dictionary.  
-     - Re-score and repeat in a loop for a specific number of iterations if Greekness was improoving.  
+     - Re-score and repeat in a loop for a specific number of iterations if Greekness was improving.  
 - **Outcome:** 
   
   Greekness rose above 95 % within 10 iterations, producing the following fully readable “1001 Nights” narrative !!!
