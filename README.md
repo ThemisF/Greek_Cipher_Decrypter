@@ -45,7 +45,6 @@ In such small texts it is very difficult to use letter-frequency analysis becaus
 ## Usage  
 ```bash
 git clone https://github.com/ThemisF/Greek_Cipher_Decrypter.git
-cd greek-cipher-decryption
 python posostiaia-apokryptografisi-V5.0.py
 ```
 
